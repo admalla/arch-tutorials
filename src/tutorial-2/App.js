@@ -4,8 +4,8 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    email = e.target[0].value;
-    password = e.target[1].value;
+    email = e.target[0].value.trim();
+    password = e.target[1].value.trim();
     !email || !password ? alert('заполните все поля') : console.log({ email, password });
     e.target[0].value = '';
     e.target[1].value = '';
