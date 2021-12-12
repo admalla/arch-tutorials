@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <ul></ul>
+      </div>
+      <input placeholder="Добавить новую задачу..." />
+      <button onclick="handleClickAdd()">Добавить</button>
+    </div>
+
+    <script>
+      let tasks = ['Создать список задач'];
+
+      let input = document.querySelector('input');
+
+      function handleClickAdd() {
+        input.value && tasks.push(input.value);
+        input.value = '';
+        render();
+      }
+
+      function handleClickRemove(index) {
+        tasks.splice(index, 1);
+        render();
+      }
+
+      function render() {
+        document.querySelector('ul').innerHTML = null;
+        tasks.map((task, index) => {
+          return (document.querySelector(
+            'ul'
+          ).innerHTML += `<li>${task} <button onclick="handleClickRemove(${index})">X</button></li>`);
+        });
+      }
+      render();
+    </script>
+  </body>
+</html>
