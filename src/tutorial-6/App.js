@@ -47,9 +47,9 @@ export default function App() {
           </Col>
         </Row>
       )}
-      {pathname !== '/' && (
+      {pathname.includes('/post/') && (
         <div>
-          <h1>Статья №{pathname} </h1>
+          <h1>Статья №{pathname.slice(6)} </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio fuga animi
             aliquam sit id veritatis, doloribus ducimus quas, dignissimos non minima quia amet
