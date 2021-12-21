@@ -4,9 +4,13 @@ export default function App() {
   const [users, setUsers] = useState([]);
 
   async function handleClickUsers() {
-    let response = await fetch('https://61c080ad33f24c0017823463.mockapi.io/users');
-    let result = await response.json();
-    setUsers(result);
+    try {
+      let response = await fetch('https://61c080ad33f24c0017823463.mockapi.io/users');
+      let result = await response.json();
+      setUsers(result);
+    } catch {
+      alert('Произошла ошибка!');
+    }
   }
 
   return (
